@@ -17,12 +17,12 @@ jobs:
         
     - name: Build APK
       run: |
-        cd 07062025StandChillow_ESPFixAndUpdate
+          cd 07062025StandChillow_ESPFixAndUpdate
         chmod +x gradlew
-        ./gradlew assembleDebug
+        ./gradlew assembleDebug 
         
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: ModMenu-APK
-        path: 07062025StandChillow_ESPFixAndUpdate/app/build/outputs/apk/debug/*.apk
+        path: path: "**/app/build/outputs/apk/debug/*.apk"
