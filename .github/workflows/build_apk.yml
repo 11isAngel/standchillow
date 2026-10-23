@@ -17,12 +17,13 @@ jobs:
         
     - name: Build APK
       run: |
-          cd 07062025StandChillow_ESPFixAndUpdate
+        DIR=$(find . -name gradlew -type f -exec dirname {} \; | head -n 1)
+        cd $DIR
         chmod +x gradlew
-        ./gradlew assembleDebug 
+        ./gradlew assembleDebug
         
     - name: Upload APK
       uses: actions/upload-artifact@v4
       with:
         name: ModMenu-APK
-        path: path: "**/app/build/outputs/apk/debug/*.apk"
+        path: "**/app/build/outputs/apk/debug/*.apk"
